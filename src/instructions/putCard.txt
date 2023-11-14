@@ -1,0 +1,6 @@
+cuando pongamos la carta en el board necesitamos clonar
+la carta en la posicion seleccionada, modificar su
+propiedad boardPosition y agregarla al board:
+
+const playedCard:TCard = structuredClone(CARDS[posicion])
+playedCard.boardPosition = posicion
