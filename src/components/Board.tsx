@@ -31,7 +31,7 @@ export const Board = () => {
       <MagicMotion>
         <div className="grid grid-cols-3 place-items-center gap-2">
           {board.map((_, index) => (
-            <Field handleClick={() => handleClick(index, CARDS[0])} key={index}>
+            <Field handleClick={() => handleClick(index, CARDS[8])} key={index}>
               <Card card={board[index]} />
             </Field>
           ))}
