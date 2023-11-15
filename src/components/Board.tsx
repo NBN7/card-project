@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MagicMotion } from "react-magic-motion";
 
 import { Field } from "./Field";
 import { FIELDS } from "../constants/fields";
@@ -27,13 +28,15 @@ export const Board = () => {
 
   return (
     <section className="w-full min-h-screen flex items-center justify-center">
-      <div className="grid grid-cols-3 place-items-center gap-2">
-        {board.map((_, index) => (
-          <Field handleClick={() => handleClick(index, CARDS[0])} key={index}>
-            <Card card={board[index]} />
-          </Field>
-        ))}
-      </div>
+      <MagicMotion>
+        <div className="grid grid-cols-3 place-items-center gap-2">
+          {board.map((_, index) => (
+            <Field handleClick={() => handleClick(index, CARDS[0])} key={index}>
+              <Card card={board[index]} />
+            </Field>
+          ))}
+        </div>
+      </MagicMotion>
     </section>
   );
 };
