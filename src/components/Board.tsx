@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { MagicMotion } from "react-magic-motion";
 
+import { useCardContext } from "../context/CardContext";
+
 import { Field } from "./Field";
 import { FIELDS } from "../constants/fields";
 
 import { Card } from "./Card";
-import { CARDS } from "../constants/cards";
 import { TCard } from "../types/card";
 
 import { Hand } from "./Hand";
 
 export const Board = () => {
+  // agarro la carta seleccionada del context
+  const { selectedCard } = useCardContext();
+
   // hago un state para que cuando cambie el board se
   // vuelva a renderizar el field con la carta puesta
   const [board, setBoard] = useState<TCard[]>(FIELDS);
@@ -36,7 +40,7 @@ export const Board = () => {
           <div className="grid grid-cols-3 place-items-center gap-2">
             {board.map((_, index) => (
               <Field
-                handleClick={() => handleClick(index, CARDS[8])}
+                handleClick={() => handleClick(index, selectedCard)}
                 key={index}
               >
                 <Card card={board[index]} />

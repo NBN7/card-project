@@ -7,4 +7,5 @@ export type TCard = {
   image: string;
   stats: [number, number, number, number];
   boardPosition?: number;
+  player?: number;
 } | null;
